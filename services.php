@@ -1,8 +1,16 @@
 <?php
+// ==========================================
+// 1. Page Configuration & Asset Loading
+// ==========================================
 require_once 'config.php';
+
+// Set page-specific variables
 $pageTitle = 'Our Services';
-$additionalCSS = ['services.css'];
+
+// Load only the CSS/JS needed for this specific page to keep the site fast
+$additionalCSS = ['services.css']; 
 $additionalJS = ['services.js'];
+
 include 'includes/header.php';
 ?>
 
@@ -12,7 +20,7 @@ include 'includes/header.php';
 </section>
 
 <section class="services-container">
-    <!-- Service Cards -->
+    
     <div class="service-card" id="doctor-service">
         <div class="service-icon">
             <i class="fas fa-user-md"></i>
@@ -21,6 +29,7 @@ include 'includes/header.php';
         <p>Volunteer your medical skills to help underserved communities.</p>
         <button class="service-btn" data-target="doctorForm">Get Started</button>
     </div>
+
     <div class="service-card" id="donator-program">
         <div class="service-icon">
             <i class="fas fa-hand-holding-heart"></i>
@@ -38,6 +47,7 @@ include 'includes/header.php';
         <p>Join our green initiative to plant trees across urban and rural areas.</p>
         <button class="service-btn" data-target="treeForm">Join Program</button>
     </div>
+
     <div class="service-card" id="animal-welfare">
         <div class="service-icon">
             <i class="fas fa-paw"></i>
@@ -46,6 +56,7 @@ include 'includes/header.php';
         <p>Help protect and care for street animals and wildlife in our communities.</p>
         <button class="service-btn" data-target="animalForm">Get Involved</button>
     </div>
+
     <div class="service-card" id="food-support">
         <div class="service-icon">
             <i class="fas fa-utensils"></i>
@@ -54,6 +65,7 @@ include 'includes/header.php';
         <p>Join our efforts to provide nutritious meals to families in need.</p>
         <button class="service-btn" data-target="foodForm">Volunteer/Donate</button>
     </div>
+
     <div class="service-card" id="farmer-service">
         <div class="service-icon">
             <i class="fas fa-tractor"></i>
@@ -64,11 +76,11 @@ include 'includes/header.php';
     </div>
 </section>
 
-<!-- Service Modals -->
 <div class="service-modal" id="donationForm">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
         <h3>Donation Form</h3>
+        
         <form class="service-form" data-service="donation">
             <div class="form-group">
                 <label>Full Name</label>
@@ -95,7 +107,9 @@ include 'includes/header.php';
                 <label>Amount/Items</label>
                 <input type="text" name="amount_items" placeholder="Amount or items description" required>
             </div>
+            
             <button type="submit" class="primary-btn">Submit Donation</button>
+            
             <div class="thank-you-message" style="display: none;">
                 Thank you for your generosity! We'll contact you shortly.
             </div>
