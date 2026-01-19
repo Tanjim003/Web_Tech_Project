@@ -1,10 +1,14 @@
-
+/* =========================================
+   1. NAVIGATION ACTIVE STATES
+   Highlights the link of the current page
+   ========================================= */
 nav a.active {
     color: var(--primary-color);
     font-weight: 600;
     position: relative;
 }
 
+/* Underline effect for active link */
 nav a.active::after {
     content: '';
     position: absolute;
@@ -15,10 +19,14 @@ nav a.active::after {
     background: var(--primary-color);
 }
 
+/* =========================================
+   2. GLOBAL VARIABLES (THEME CONFIG)
+   Change colors here to update the whole site
+   ========================================= */
 :root {
     --primary-color: #2E7D32;  /* Green for welfare theme */
-    --secondary-color: #1B5E20; /* Darker green */
-    --accent-color: #4CAF50;   /* Vibrant green */
+    --secondary-color: #1B5E20; /* Darker green for hover states */
+    --accent-color: #4CAF50;   /* Vibrant green for highlights */
     --dark-color: #212121;
     --light-color: #f0f5f0;    /* Light green background */
     --text-color: #424242;
@@ -30,6 +38,9 @@ nav a.active::after {
     --section-padding: 4rem 0;
 }
 
+/* =========================================
+   3. BASE & RESET STYLES
+   ========================================= */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -41,12 +52,23 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--page-bg);
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevents horizontal scrollbars */
+    /* Subtle gradient background */
     background-image: linear-gradient(to bottom, 
                       rgba(255,255,255,0.8) 0%, 
                       rgba(232,245,233,0.3) 100%);
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* =========================================
+   4. HEADER & NAVIGATION
+   ========================================= */
 header {
     background-color: var(--white);
     padding: 1rem 5%;
@@ -54,9 +76,10 @@ header {
     justify-content: space-between;
     align-items: center;
     box-shadow: var(--shadow);
-    position: sticky;
+    position: sticky; /* Keeps header at top when scrolling */
     top: 0;
     z-index: 1000;
+    position: relative; /* Needed for hamburger absolute positioning */
 }
 
 .logo {
@@ -83,6 +106,7 @@ nav a:hover {
     color: var(--primary-color);
 }
 
+/* Special styling for the 'Join' button in nav */
 #joinBtn {
     background-color: var(--primary-color);
     color: var(--white);
@@ -98,11 +122,39 @@ nav a:hover {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
 }
-header {
-    position: relative; /* Add this to contain the hamburger */
+
+/* Login Button specific styles */
+nav a#loginBtn {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+    position: relative;
 }
 
+nav a#loginBtn:hover {
+    color: var(--primary-color);
+}
 
+nav a#loginBtn.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+nav a#loginBtn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+/* =========================================
+   5. HAMBURGER MENU (MOBILE)
+   ========================================= */
 .hamburger {
    background: none;
     border: none;
@@ -118,6 +170,10 @@ header {
 .hamburger i {
     font-size: 1.5rem;
 }
+
+/* =========================================
+   6. HERO SECTION
+   ========================================= */
 .hero {
     display: flex;
     align-items: center;
@@ -160,6 +216,9 @@ header {
     gap: 1rem;
 }
 
+/* =========================================
+   7. BUTTONS (GLOBAL)
+   ========================================= */
 .primary-btn, .secondary-btn {
     padding: 0.8rem 1.8rem;
     border-radius: 30px;
@@ -180,20 +239,14 @@ header {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.card-btn:hover {
-    background-color: var(--secondary-color);
-}
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
 .secondary-btn:hover {
     background-color: rgba(76, 175, 80, 0.1);
     transform: translateY(-3px);
 }
 
+/* =========================================
+   8. STATS & TITLES
+   ========================================= */
 .stats {
     display: flex;
     justify-content: space-around;
@@ -227,6 +280,9 @@ header {
     font-size: 1.2rem;
 }
 
+/* =========================================
+   9. SERVICE CARDS
+   ========================================= */
 .cards {
     padding: 5rem 5%;
     background-color: var(--light-color);
@@ -250,7 +306,7 @@ header {
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px); /* Lift effect */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -306,6 +362,9 @@ header {
     background-color: var(--secondary-color);
 }
 
+/* =========================================
+   10. TESTIMONIALS & CTA
+   ========================================= */
 .testimonials {
     padding: 5rem 5%;
     background-color: var(--white);
@@ -334,6 +393,7 @@ header {
     position: relative;
 }
 
+/* Large quote mark behind text */
 .quote::before {
     content: '"';
     font-size: 3rem;
@@ -404,6 +464,9 @@ header {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* =========================================
+   11. FOOTER
+   ========================================= */
 footer {
     background-color: var(--dark-color);
     color: var(--light-color);
@@ -479,6 +542,10 @@ footer {
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* =========================================
+   12. MOBILE MENU & RESPONSIVENESS
+   ========================================= */
 .mobile-menu-overlay {
   display: none;
   position: fixed;
@@ -489,12 +556,15 @@ footer {
   background: rgba(0,0,0,0.5);
   z-index: 999;
 }
+
 .mobile-menu-overlay.active{
     display: block;
 }
+
 body.mobile-menu-open {
-    overflow: hidden;
+    overflow: hidden; /* Stop scrolling when menu is open */
 }
+
 @media (max-width: 992px) {
     .hero {
         flex-direction: column;
@@ -515,13 +585,13 @@ body.mobile-menu-open {
     }
 }
 
-
-/* Mobile Menu Styles */
+/* Tablet & Mobile Screens */
 @media (max-width: 768px) {
+    /* Slide-out navigation */
     nav {
         position: fixed;
         top: 0;
-        left: -100%;
+        left: -100%; /* Hidden off-screen */
         width: 80%;
         max-width: 300px;
         height: 100vh;
@@ -535,7 +605,7 @@ body.mobile-menu-open {
     }
 
     nav.active {
-        left: 0;
+        left: 0; /* Slide in */
     }
 
     nav a {
@@ -575,7 +645,11 @@ body.mobile-menu-open {
         width: 100%;
     }
 }
-/* Modal Styles */
+
+/* =========================================
+   13. MODAL POPUPS
+   Hidden by default, shown via JS
+   ========================================= */
 .modal {
   display: none;
   position: fixed;
@@ -584,7 +658,7 @@ body.mobile-menu-open {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.7); /* Dark semi-transparent background */
 }
 
 .modal-content {
@@ -594,8 +668,8 @@ body.mobile-menu-open {
   border-radius: 15px;
   width: 90%;
   max-width: 550px;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-height: 90vh; /* Prevents modal from being taller than screen */
+  overflow-y: auto; /* Adds scrollbar inside modal if needed */
   position: relative;
   animation: modalopen 0.5s;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -608,6 +682,7 @@ body.mobile-menu-open {
   text-align: center;
 }
 
+/* Animation for Modal appearing */
 @keyframes modalopen {
   from {opacity: 0; transform: translateY(-50px);}
   to {opacity: 1; transform: translateY(0);}
@@ -637,6 +712,9 @@ body.mobile-menu-open {
   transform: rotate(90deg);
 }
 
+/* =========================================
+   14. FORM STYLES
+   ========================================= */
 .form-group {
   margin-bottom: 20px;
 }
@@ -673,7 +751,7 @@ body.mobile-menu-open {
   border-color: #b0b0b0;
 }
 
-/* Password toggle button styling */
+/* Password eye icon */
 .toggle-password {
   position: absolute;
   right: 15px;
@@ -697,7 +775,9 @@ body.mobile-menu-open {
   font-size: 0.85rem;
 }
 
-/* Enhanced Submit Button Styles for Modal */
+/* =========================================
+   15. FORM SUBMIT BUTTONS
+   ========================================= */
 #signupForm .primary-btn,
 .modal-content .primary-btn {
   width: 100%;
@@ -737,7 +817,9 @@ body.mobile-menu-open {
   box-shadow: none;
 }
 
-/* Success Message */
+/* =========================================
+   16. SUCCESS/ERROR MESSAGES
+   ========================================= */
 #successMessage {
   display: none;
   text-align: center;
@@ -788,7 +870,7 @@ body.mobile-menu-open {
   border-color: #b0b0b0;
 }
 
-/* Error and Success Messages */
+/* Generic alert boxes */
 .error-message {
   background-color: #ffebee;
   color: #c62828;
@@ -809,6 +891,9 @@ body.mobile-menu-open {
   font-size: 0.9rem;
 }
 
+/* =========================================
+   17. SMALL SCREEN ADJUSTMENTS (MOBILE)
+   ========================================= */
 @media (max-width: 600px) {
   .modal-content {
     width: 95%;
@@ -822,10 +907,11 @@ body.mobile-menu-open {
     margin-bottom: 20px;
   }
   
+  /* Prevent iOS zoom on inputs */
   .form-group input, 
   .form-group select {
     padding: 12px 14px;
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: 16px; 
   }
   
   #signupForm .primary-btn,
@@ -843,35 +929,4 @@ body.mobile-menu-open {
     max-width: 100%;
     width: 100%;
   }
-}
-/* Add this to your existing nav styles */
-/* Style the Login link to match other nav items */
-nav a#loginBtn {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    transition: var(--transition);
-    position: relative;
-}
-
-/* Hover state */
-nav a#loginBtn:hover {
-    color: var(--primary-color);
-}
-
-/* Active state (when on login page) */
-nav a#loginBtn.active {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-nav a#loginBtn.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--primary-color);
 }
